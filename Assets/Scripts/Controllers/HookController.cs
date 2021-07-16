@@ -6,7 +6,7 @@ public class HookController : MonoBehaviour
 {
     public RodController rod;
 
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         FishController fc;
         if (rod.CanHook() && collision.gameObject.TryGetComponent(out fc))
@@ -14,5 +14,14 @@ public class HookController : MonoBehaviour
             rod.HookFish();
             Destroy(fc.gameObject);
         }
+        else
+        {
+            rod.Bounce(collision.GetContact(0).normal);
+        }
+    }
+
+    public void OnCollisionStay2D(Collision2D collision)
+    {
+        rod.Bounce((new Vector2(0, 0) - (Vector2)transform.position).normalized);
     }
 }

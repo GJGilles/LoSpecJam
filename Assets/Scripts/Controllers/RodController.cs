@@ -32,6 +32,9 @@ public class RodController : MonoBehaviour
     public float fishForce = 10f;
     public float fishRate = 2f;
 
+    public float snapLength = 2f;
+    public float bounciness = 0.2f;
+
     private int state = 1;
     private float time = 0f;
     private float length = 10.5f;
@@ -98,17 +101,13 @@ public class RodController : MonoBehaviour
 
         velocity += -dragForce * velocity * Time.deltaTime;
 
-        hook.transform.position = (Vector2)hook.transform.position + velocity * Time.deltaTime;
-        line.SetPosition(1, hook.transform.position - transform.position + new Vector3(0, 2));
-        if ((!hold && lineVect.magnitude >= length) || (reel && lineVect.magnitude <= length))
-        {
-            length = lineVect.magnitude;
-        }
+        MoveHook(hold, reel);
+    }
 
-        if (fish && line.GetPosition(1).y > waterLevel)
-        {
-            CatchFish();
-        }
+    public void Bounce(Vector2 dir)
+    {
+        velocity -= (1 + bounciness) * Vector2.Dot(velocity, dir) * dir;
+        MoveHook(InputManager.GetFireB(), InputManager.GetFireA());
     }
 
     public bool CanHook()
@@ -129,6 +128,40 @@ public class RodController : MonoBehaviour
         hook.sprite = hookEmpty;
     }
 
+    private void MoveHook(bool hold, bool reel)
+    {
+        var lineVect = ((Vector2)(line.GetPosition(0) - line.GetPosition(1)));
+        hook.transform.position = (Vector2)hook.transform.position + velocity * Time.deltaTime;
+        line.SetPosition(1, hook.transform.position - transform.position + new Vector3(0, 2));
+        if ((!hold && !reel && lineVect.magnitude >= length) || (reel && lineVect.magnitude <= length))
+        {
+            length = lineVect.magnitude;
+            SetLineColor(new Color32(141, 144, 46, 1));
+        }
+        else if (lineVect.magnitude - length > snapLength)
+        {
+            CatchFish();
+            SetLineColor(new Color32(246, 63, 76, 1));
+        }
+        else if (lineVect.magnitude - length > snapLength * 0.8)
+        {
+            SetLineColor(new Color32(246, 63, 76, 1));
+        }
+        else if (lineVect.magnitude - length > snapLength * 0.6)
+        {
+            SetLineColor(new Color32(253, 187, 39, 1));
+        }
+        else
+        {
+            SetLineColor(new Color32(141, 144, 46, 1));
+        }
+
+        if (fish && line.GetPosition(1).y > waterLevel)
+        {
+            CatchFish(); // Line Breaks
+        }
+    }
+
     private void ChangeState(int next)
     {
         line.SetPosition(0, rods[next].origin);
@@ -136,5 +169,16 @@ public class RodController : MonoBehaviour
         state = next;
 
         time = cooldown;
+    }
+
+    private void SetLineColor(Color32 col)
+    {
+        Gradient grad = new Gradient();
+        grad.mode = GradientMode.Fixed;
+        grad.SetKeys(
+            new GradientColorKey[] { new GradientColorKey(col, 0f), new GradientColorKey(col, 1f) }, 
+            new GradientAlphaKey[] { new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 1f) }
+        );
+        line.colorGradient = grad;
     }
 }
