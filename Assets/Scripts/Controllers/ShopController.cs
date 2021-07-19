@@ -14,15 +14,7 @@ public class ShopController : MonoBehaviour
     public MoneyController money;
     public RodController rod;
 
-    public List<ShopTier> lengthTiers = new List<ShopTier>(); 
-    public List<ShopTier> lineTiers = new List<ShopTier>();
-    public List<ShopTier> reelTiers = new List<ShopTier>();
-    public List<ShopTier> snapTiers = new List<ShopTier>();
-
-    private int length = 0;
-    private int line = 0;
-    private int reel = 0;
-    private int snap = 0;
+    public List<ShopRowController> rows = new List<ShopRowController>();
 
     private bool selected = false;
     private int selection = 0;
@@ -48,61 +40,44 @@ public class ShopController : MonoBehaviour
 
         if (up)
         {
+            rows[selection].UpdateSelect(false);
             selection--;
-            if (selection < 0) selection = 3;
+            if (selection < 0) selection = rows.Count - 1;
+            rows[selection].UpdateSelect(true);
         }
         else if (down)
         {
+            rows[selection].UpdateSelect(false);
             selection++;
-            if (selection > 3) selection = 0;
+            if (selection > rows.Count) selection = 0;
+            rows[selection].UpdateSelect(true);
         }
     }
 
     private void Upgrade()
     {
-        float result;
+        if (rows[selection].IsMax() || money.Get() < rows[selection].GetCost())
+        {
+            return;
+        }
+
+        money.Set(money.Get() - rows[selection].GetCost());
+        float result = rows[selection].Upgrade();
         switch (selection)
         {
             case 0:
-                result = TryBuy(lengthTiers, ref length);
-                if (result != 0)
-                {
-                    rod.maxLength = result;
-                }
+                rod.maxLength = result;
                 break;
             case 1:
-                result = TryBuy(lineTiers, ref line);
-                if (result != 0)
-                {
-                    rod.elasticForce = result;
-                }
+                rod.elasticForce = result;
                 break;
             case 2:
-                result = TryBuy(reelTiers, ref reel);
-                if (result != 0)
-                {
-                    rod.reelForce = result;
-                }
+                rod.reelForce = result;
                 break;
             case 3:
-                result = TryBuy(snapTiers, ref snap);
-                if (result != 0)
-                {
-                    rod.snapLength = result;
-                }
+                rod.snapLength = result;
                 break;
         }
     }
 
-    private float TryBuy(List<ShopTier> tiers, ref int idx)
-    {
-        float res = 0;
-        if (money.Get() >= tiers[idx].cost)
-        {
-            res = tiers[idx].result;
-            money.Set(money.Get() - tiers[idx].cost);
-            idx++;
-        }
-        return res;
-    }
 }
