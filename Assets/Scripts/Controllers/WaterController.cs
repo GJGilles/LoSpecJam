@@ -6,7 +6,8 @@ using UnityEngine;
 public class FishData
 {
     public GameObject obj;
-    public int depth = 0;
+    public int min = 0;
+    public int max = 1;
 }
 
 public class WaterController : MonoBehaviour
@@ -15,6 +16,7 @@ public class WaterController : MonoBehaviour
     public float refresh = 60f;
     public List<FishData> data = new List<FishData>();
 
+    private List<List<GameObject>> randomizer = new List<List<GameObject>>();
     private List<List<FishController>> fish = new List<List<FishController>>();
     private float time = 0f;
 
@@ -23,6 +25,18 @@ public class WaterController : MonoBehaviour
 
     private void Start()
     {
+        for (int i = 1; i < levels.Count; i++)
+        {
+            randomizer.Add(new List<GameObject>());
+        }
+        for (int i = 0; i < data.Count; i++)
+        {
+            for (int j = data[i].min; j <= data[i].max; j++)
+            {
+                randomizer[j-1].Add(data[i].obj);
+            }
+        }
+
         for (int i = 1; i < levels.Count; i++)
         {
             fish.Add(new List<FishController>());
@@ -63,11 +77,7 @@ public class WaterController : MonoBehaviour
 
     private GameObject RandomFish(int level)
     {
-        int i = 0;
-        do
-        {
-            i = UnityEngine.Random.Range(0, data.Count);
-        } while (data[i].depth > level);
-        return data[i].obj;
+        int i = UnityEngine.Random.Range(0, randomizer[level].Count);
+        return randomizer[level][i];
     }
 }

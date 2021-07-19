@@ -447,7 +447,7 @@ MonoBehaviour:
   reelForce: 30
   elasticForce: 15
   gravityForce: 9
-  maxLength: 50
+  maxLength: 80
   snapLength: 30
   snapTime: 1
   bounciness: 0.6
@@ -550,15 +550,20 @@ MonoBehaviour:
   refresh: 60
   data:
   - obj: {fileID: 6068700270182096226, guid: 1edffd78df88a1440b1e04c4b8a81347, type: 3}
-    depth: 0
+    min: 1
+    max: 2
   - obj: {fileID: 7268232735716935441, guid: c5d0bdc9545a2e34b881e16a6a56141b, type: 3}
-    depth: 1
+    min: 2
+    max: 3
   - obj: {fileID: 2312563343267874968, guid: 6d9c4b14cbe966340b849e341f02b16c, type: 3}
-    depth: 2
+    min: 2
+    max: 4
   - obj: {fileID: 1639382880141688269, guid: 23f8fa9f5b251674cbd492c61a4e9058, type: 3}
-    depth: 3
+    min: 4
+    max: 5
   - obj: {fileID: 4999577813786971682, guid: f6783d2a7a2c91c41908b475708424d7, type: 3}
-    depth: 4
+    min: 5
+    max: 5
 --- !u!1 &1315238497
 GameObject:
   m_ObjectHideFlags: 0
@@ -670,7 +675,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -2, y: -0.5}
+  m_Offset: {x: 0.5, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -681,7 +686,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4, y: 3}
+  m_Size: {x: 3, y: 4}
   m_EdgeRadius: 0
 --- !u!50 &1315238502
 Rigidbody2D:

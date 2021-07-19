@@ -136,13 +136,13 @@ public class RodController : MonoBehaviour
     private void CatchFish()
     {
         money.money += fish.cost;
-        fish = null;
+        Destroy(fish.gameObject);
         hook.sprite = hookEmpty;
     }
 
     private void SnapLine()
     {
-        fish = null;
+        Destroy(fish.gameObject);
         snapRemain = snapTime;
         hook.sprite = hookEmpty;
         hook.transform.position = new Vector2(0, 0);

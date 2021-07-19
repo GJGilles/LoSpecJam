@@ -8,6 +8,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3354275741816773119, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
+      propertyPath: m_Size.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354275741816773119, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354275741816773119, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 20
       objectReference: {fileID: 0}
@@ -17,6 +25,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3354275741816773119, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3354275741816773119, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5177467071730644728, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
@@ -66,6 +78,18 @@ PrefabInstance:
     - target: {fileID: 5177467071730644729, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177467071730644734, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
+      propertyPath: cost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177467071730644734, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
+      propertyPath: decay
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5177467071730644734, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
+      propertyPath: force
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 5177467071730644734, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
       propertyPath: range
