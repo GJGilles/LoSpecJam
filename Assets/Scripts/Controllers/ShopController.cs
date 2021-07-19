@@ -97,10 +97,10 @@ public class ShopController : MonoBehaviour
     private float TryBuy(List<ShopTier> tiers, ref int idx)
     {
         float res = 0;
-        if (money.money >= tiers[idx].cost)
+        if (money.Get() >= tiers[idx].cost)
         {
             res = tiers[idx].result;
-            money.money -= tiers[idx].cost;
+            money.Set(money.Get() - tiers[idx].cost);
             idx++;
         }
         return res;

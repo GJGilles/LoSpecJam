@@ -135,7 +135,7 @@ public class RodController : MonoBehaviour
 
     private void CatchFish()
     {
-        money.money += fish.cost;
+        money.Set(money.Get() + fish.cost);
         Destroy(fish.gameObject);
         hook.sprite = hookEmpty;
     }
