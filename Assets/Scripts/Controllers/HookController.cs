@@ -11,7 +11,7 @@ public class HookController : MonoBehaviour
         FishController fc;
         if (rod.CanHook() && collision.gameObject.TryGetComponent(out fc))
         {
-            rod.HookFish();
+            rod.HookFish(fc);
             Destroy(fc.gameObject);
         }
         else

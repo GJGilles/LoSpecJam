@@ -33,4 +33,8 @@ public static class InputManager
     {
         return Input.GetAxisRaw("Fire2") != 0f;
     }
+    public static bool GetFireC()
+    {
+        return Input.GetAxisRaw("Fire3") != 0f;
+    }
 }

@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spr: {fileID: 5177467071730644735}
-  speed: 0.01
+  speed: 0.03
   range: 50
 --- !u!61 &3354275741816773119
 BoxCollider2D:

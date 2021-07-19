@@ -9,6 +9,10 @@ public class FishController : MonoBehaviour
     public float speed = 0.01f;
     public int range = 50;
 
+    public int cost;
+    public float force;
+    public float decay;
+
     private float location = 0;
     private int destination = 0;
 
@@ -23,13 +27,13 @@ public class FishController : MonoBehaviour
         int diff = Mathf.RoundToInt(next) - Mathf.RoundToInt(location);
         while (diff > 0)
         {
-            spr.flipX = false;
+            spr.flipX = true;
             transform.position = transform.position + new Vector3(1, 0);
             diff--;
         }
         while (diff < 0)
         {
-            spr.flipX = true;
+            spr.flipX = false;
             transform.position = transform.position - new Vector3(1, 0);
             diff++;
         }
