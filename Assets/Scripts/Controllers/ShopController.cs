@@ -19,6 +19,11 @@ public class ShopController : MonoBehaviour
     private bool selected = false;
     private int selection = 0;
 
+    private void Start()
+    {
+        rows[selection].UpdateSelect(true);
+    }
+
     private void Update()
     {
         bool up = InputManager.GetVertAxis() == 1;

@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ShopRowController : MonoBehaviour
 {
-    public GameObject progress;
-    public UnityEngine.UI.Image button;
+    public UnityEngine.UI.Image progress;
+    public UnityEngine.UI.Image highlight;
     public TMPro.TMP_Text cost;
 
+    public List<Sprite> grades = new List<Sprite>();
     public List<ShopTier> tiers = new List<ShopTier>();
 
     private int level = 0;
@@ -19,14 +20,7 @@ public class ShopRowController : MonoBehaviour
 
     public void UpdateSelect(bool selected)
     {
-        if (selected)
-        {
-            button.color = new Color32();
-        }
-        else
-        {
-            button.color = new Color32();
-        }
+        highlight.gameObject.SetActive(selected);
     }
 
     public bool IsMax()
@@ -41,7 +35,7 @@ public class ShopRowController : MonoBehaviour
 
     public float Upgrade()
     {
-        progress.transform.GetChild(level).gameObject.SetActive(true);
+        progress.sprite = grades[level];
         level++;
         SetCost();
         return tiers[level - 1].result;
