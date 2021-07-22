@@ -49,7 +49,7 @@ public class ShopRowController : MonoBehaviour
         }
         else
         {
-            cost.text = "$" + tiers[level].cost;
+            cost.text = tiers[level].cost;
         }
     }
 }

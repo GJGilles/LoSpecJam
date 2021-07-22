@@ -13,6 +13,6 @@ public class MoneyController : MonoBehaviour
     public void Set(int amount)
     {
         money = amount;
-        text.text = "$" + money;
+        text.text = money.ToString();
     }
 }
