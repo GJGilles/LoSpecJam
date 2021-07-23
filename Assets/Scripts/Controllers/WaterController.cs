@@ -58,6 +58,11 @@ public class WaterController : MonoBehaviour
             {
                 for (int j = 0; j < levels[i]; j++)
                 {
+                    if (fish[i - 1][j] != null && !fish[i - 1][j].isActiveAndEnabled)
+                    {
+                        Destroy(fish[i - 1][j].gameObject);
+                    }
+
                     if (fish[i - 1][j] == null)
                     {
                         fish[i - 1][j] = CreateFish(i);

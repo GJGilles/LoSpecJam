@@ -17,9 +17,7 @@ public class RodController : MonoBehaviour
     public SpriteRenderer rod;
     public LineRenderer line;
     public SpriteRenderer hook;
-
-    public List<RodState> rods = new List<RodState>();
-    public float coolTime = 0.3f;
+    public Animator animator;
 
     public Sprite hookEmpty;
 
@@ -35,8 +33,8 @@ public class RodController : MonoBehaviour
     public float snapTime = 1f;
     public float bounciness = 0.2f;
 
-    private int state = 1;
-    private float coolRemain = 0f;
+    public Vector2 rodVect = new Vector2(11, 1);
+
     private float length = 10.5f;
 
     private Vector2 velocity = new Vector2(0, 0);
@@ -46,10 +44,7 @@ public class RodController : MonoBehaviour
     private Vector2 fishDirection = new Vector2(0, 1);
     private float snapRemain = 0f;
 
-    private void Start()
-    {
-        ChangeState(state);
-    }
+    private const string FORWARD = "Forward";
 
     private void Update()
     {
@@ -66,15 +61,16 @@ public class RodController : MonoBehaviour
         bool reel = InputManager.GetFireA();
         bool hold = InputManager.GetFireB();
 
-        coolRemain -= Time.deltaTime;
-        if (left && coolRemain <= 0 && state > 0)
+        if (left && animator.GetBool(FORWARD))
         {
-            ChangeState(state - 1);
+            animator.SetBool(FORWARD, false);
         }
-        else if (right && coolRemain <= 0 && state < (rods.Count - 1))
+        else if (right && !animator.GetBool(FORWARD))
         {
-            ChangeState(state + 1);
+            animator.SetBool(FORWARD, true);
         }
+        ChangeRod(rodVect);
+
 
         velocity += new Vector2(0, -gravityForce) * Time.deltaTime;
 
@@ -95,16 +91,8 @@ public class RodController : MonoBehaviour
             if (fishMagnitude <= 0)
             {
                 fishMagnitude = fish.force;
-                float angle = UnityEngine.Random.Range(0, Mathf.PI);
+                float angle = UnityEngine.Random.Range(0, Mathf.PI / 2f);
                 fishDirection = new Vector2(Mathf.Cos(angle), -Mathf.Sin(angle));
-                if (angle <= Mathf.PI / 2f)
-                {
-                    hook.flipX = true;
-                }
-                else
-                {
-                    hook.flipX = false;
-                }
             }
             velocity += fishMagnitude * fishDirection * Time.deltaTime;
         }
@@ -129,6 +117,7 @@ public class RodController : MonoBehaviour
     {
         fish = fc;
         hook.sprite = fc.spr.sprite;
+        hook.flipX = true;
         fishMagnitude = 0;
         fishDirection = new Vector2(0, 1);
     }
@@ -138,6 +127,7 @@ public class RodController : MonoBehaviour
         money.Set(money.Get() + fish.cost);
         Destroy(fish.gameObject);
         hook.sprite = hookEmpty;
+        hook.flipX = false;
     }
 
     private void SnapLine()
@@ -145,7 +135,7 @@ public class RodController : MonoBehaviour
         Destroy(fish.gameObject);
         snapRemain = snapTime;
         hook.sprite = hookEmpty;
-        hook.transform.position = new Vector2(0, 0);
+        hook.transform.position = new Vector2(-68, 50);
         velocity = new Vector2(0, 0);
     } 
 
@@ -163,7 +153,7 @@ public class RodController : MonoBehaviour
         {
             SetLineColor(new Color32(246, 63, 76, 1));
             snapRemain -= Time.deltaTime;
-            if (snapRemain <= 0)
+            if (fish != null && snapRemain <= 0)
             {
                 SnapLine();
             }
@@ -185,13 +175,9 @@ public class RodController : MonoBehaviour
         }
     }
 
-    private void ChangeState(int next)
+    public void ChangeRod(Vector2 pos)
     {
-        line.SetPosition(0, rods[next].origin);
-        rod.sprite = rods[next].spr;
-        state = next;
-
-        coolRemain = coolTime;
+        line.SetPosition(0, pos);
     }
 
     private void SetLineColor(Color32 col)

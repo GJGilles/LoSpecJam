@@ -1,31 +1,31 @@
 fileFormatVersion: 2
-guid: 8a31f4dada8ab21479e2a4e81fe9611e
+guid: 52124e51938869a4bb01e9fab905920e
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8509550459451208454
-    second: water_0
+      213: -6182019531092867014
+    second: cat-idle_0
   - first:
-      213: 3559705528278350927
-    second: water_1
+      213: -2498946624413134010
+    second: cat-idle_1
   - first:
-      213: -4124057691748712743
-    second: water_2
+      213: -4819388609779258202
+    second: cat-idle_2
   - first:
-      213: -7064220622572970029
-    second: water_3
+      213: -4150730525316648476
+    second: cat-idle_3
   - first:
-      213: -2740290441555968558
-    second: water_4
+      213: -2289877648361445136
+    second: cat-idle_4
   - first:
-      213: 7149751655148466542
-    second: water_5
+      213: 3645186818805138938
+    second: cat-idle_5
   - first:
-      213: -7655527456229970072
-    second: water_6
+      213: 8664279889911865430
+    second: cat-idle_6
   - first:
-      213: -1984912068192422301
-    second: water_7
+      213: -268296450990271579
+    second: cat-idle_7
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -59,15 +59,15 @@ TextureImporter:
     filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
-  spriteMeshType: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 1
@@ -75,7 +75,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -127,13 +127,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: water_0
+      name: cat-idle_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 240
-        height: 100
+        width: 30
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +141,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 603f9ddae0ff71670800000000000000
-      internalID: 8509550459451208454
+      spriteID: a38ceae7dfd053aa0800000000000000
+      internalID: -6182019531092867014
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_1
+      name: cat-idle_1
       rect:
         serializedVersion: 2
-        x: 240
+        x: 30
         y: 0
-        width: 240
-        height: 100
+        width: 30
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +162,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4c760e515d966130800000000000000
-      internalID: 3559705528278350927
+      spriteID: 643913bf845f15dd0800000000000000
+      internalID: -2498946624413134010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_2
+      name: cat-idle_2
       rect:
         serializedVersion: 2
-        x: 480
+        x: 60
         y: 0
-        width: 240
-        height: 100
+        width: 30
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +183,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9deb91a216764c6c0800000000000000
-      internalID: -4124057691748712743
+      spriteID: 6ac2b87f7971e1db0800000000000000
+      internalID: -4819388609779258202
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_3
+      name: cat-idle_3
       rect:
         serializedVersion: 2
-        x: 720
+        x: 90
         y: 0
-        width: 240
-        height: 100
+        width: 30
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,20 +204,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3df9c8885c8d6fd90800000000000000
-      internalID: -7064220622572970029
+      spriteID: 4e171282494a566c0800000000000000
+      internalID: -4150730525316648476
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_4
+      name: cat-idle_4
       rect:
         serializedVersion: 2
-        x: 960
+        x: 120
         y: 0
-        width: 240
-        height: 100
+        width: 30
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -225,20 +225,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2dd78a1bc5888f9d0800000000000000
-      internalID: -2740290441555968558
+      spriteID: 0f82f4e3968b830e0800000000000000
+      internalID: -2289877648361445136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_5
+      name: cat-idle_5
       rect:
         serializedVersion: 2
-        x: 1200
+        x: 150
         y: 0
-        width: 240
-        height: 100
+        width: 30
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,20 +246,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e61b265df35093360800000000000000
-      internalID: 7149751655148466542
+      spriteID: af501d2491e469230800000000000000
+      internalID: 3645186818805138938
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_6
+      name: cat-idle_6
       rect:
         serializedVersion: 2
-        x: 1440
+        x: 180
         y: 0
-        width: 240
-        height: 100
+        width: 30
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -267,20 +267,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 86fa92bd65a12c590800000000000000
-      internalID: -7655527456229970072
+      spriteID: 650e1c097a4bd3870800000000000000
+      internalID: 8664279889911865430
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_7
+      name: cat-idle_7
       rect:
         serializedVersion: 2
-        x: 1680
+        x: 210
         y: 0
-        width: 240
-        height: 100
+        width: 30
+        height: 24
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -288,17 +288,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 36631019dfc2474e0800000000000000
-      internalID: -1984912068192422301
+      spriteID: 5a31a30acc1d64cf0800000000000000
+      internalID: -268296450990271579
       vertices: []
       indices: 
       edges: []
       weights: []
-    outline:
-    - - {x: -10, y: 50}
-      - {x: -10, y: -50}
-      - {x: 10, y: -50}
-      - {x: 10, y: 50}
+    outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000

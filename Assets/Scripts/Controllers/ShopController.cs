@@ -15,7 +15,9 @@ public class ShopController : MonoBehaviour
     public RodController rod;
 
     public List<ShopRowController> rows = new List<ShopRowController>();
+    public float selectTime = 0.4f;
 
+    private float selectRemain = 0f;
     private bool selected = false;
     private int selection = 0;
 
@@ -29,11 +31,13 @@ public class ShopController : MonoBehaviour
         bool up = InputManager.GetVertAxis() == 1;
         bool down = InputManager.GetVertAxis() == -1;
 
+        selectRemain -= Time.deltaTime;
+
         if (InputManager.GetFireB())
         {
             gameObject.SetActive(false);
         }
-        else if ((InputManager.GetFireA() || InputManager.GetFireC()) && !selected)
+        else if ((InputManager.GetFireA()) && !selected)
         {
             Upgrade();
             selected = true;
@@ -43,19 +47,23 @@ public class ShopController : MonoBehaviour
             selected = false;
         }
 
-        if (up)
+        if (up && selectRemain < 0)
         {
             rows[selection].UpdateSelect(false);
             selection--;
             if (selection < 0) selection = rows.Count - 1;
             rows[selection].UpdateSelect(true);
+
+            selectRemain = selectTime;
         }
-        else if (down)
+        else if (down && selectRemain < 0)
         {
             rows[selection].UpdateSelect(false);
             selection++;
-            if (selection > rows.Count) selection = 0;
+            if (selection >= rows.Count) selection = 0;
             rows[selection].UpdateSelect(true);
+
+            selectRemain = selectTime;
         }
     }
 

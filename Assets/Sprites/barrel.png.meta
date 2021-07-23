@@ -1,31 +1,19 @@
 fileFormatVersion: 2
-guid: 8a31f4dada8ab21479e2a4e81fe9611e
+guid: 0877e9425aa005948935a706b32ddd24
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8509550459451208454
-    second: water_0
+      213: -8568042794190644651
+    second: barrel_0
   - first:
-      213: 3559705528278350927
-    second: water_1
+      213: -1209127185579228243
+    second: barrel_1
   - first:
-      213: -4124057691748712743
-    second: water_2
+      213: -7921435704551551082
+    second: barrel_2
   - first:
-      213: -7064220622572970029
-    second: water_3
-  - first:
-      213: -2740290441555968558
-    second: water_4
-  - first:
-      213: 7149751655148466542
-    second: water_5
-  - first:
-      213: -7655527456229970072
-    second: water_6
-  - first:
-      213: -1984912068192422301
-    second: water_7
+      213: 8562160663626781718
+    second: barrel_3
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -59,15 +47,15 @@ TextureImporter:
     filterMode: 0
     aniso: -1
     mipBias: -100
-    wrapU: 0
-    wrapV: 0
-    wrapW: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
   spriteMode: 2
-  spriteExtrude: 0
-  spriteMeshType: 0
+  spriteExtrude: 1
+  spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 1
@@ -75,7 +63,7 @@ TextureImporter:
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: 0
+  spriteTessellationDetail: -1
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
@@ -127,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: water_0
+      name: barrel_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 240
-        height: 100
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -141,20 +129,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 603f9ddae0ff71670800000000000000
-      internalID: 8509550459451208454
+      spriteID: 55adbef5972381980800000000000000
+      internalID: -8568042794190644651
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_1
+      name: barrel_1
       rect:
         serializedVersion: 2
-        x: 240
+        x: 20
         y: 0
-        width: 240
-        height: 100
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -162,20 +150,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f4c760e515d966130800000000000000
-      internalID: 3559705528278350927
+      spriteID: da3484f1b31583fe0800000000000000
+      internalID: -1209127185579228243
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_2
+      name: barrel_2
       rect:
         serializedVersion: 2
-        x: 480
+        x: 40
         y: 0
-        width: 240
-        height: 100
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -183,20 +171,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9deb91a216764c6c0800000000000000
-      internalID: -4124057691748712743
+      spriteID: 69fcb1f3238611290800000000000000
+      internalID: -7921435704551551082
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: water_3
+      name: barrel_3
       rect:
         serializedVersion: 2
-        x: 720
+        x: 60
         y: 0
-        width: 240
-        height: 100
+        width: 20
+        height: 20
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -204,101 +192,13 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3df9c8885c8d6fd90800000000000000
-      internalID: -7064220622572970029
+      spriteID: 6141c4162c7e2d670800000000000000
+      internalID: 8562160663626781718
       vertices: []
       indices: 
       edges: []
       weights: []
-    - serializedVersion: 2
-      name: water_4
-      rect:
-        serializedVersion: 2
-        x: 960
-        y: 0
-        width: 240
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 2dd78a1bc5888f9d0800000000000000
-      internalID: -2740290441555968558
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_5
-      rect:
-        serializedVersion: 2
-        x: 1200
-        y: 0
-        width: 240
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e61b265df35093360800000000000000
-      internalID: 7149751655148466542
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_6
-      rect:
-        serializedVersion: 2
-        x: 1440
-        y: 0
-        width: 240
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 86fa92bd65a12c590800000000000000
-      internalID: -7655527456229970072
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: water_7
-      rect:
-        serializedVersion: 2
-        x: 1680
-        y: 0
-        width: 240
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 36631019dfc2474e0800000000000000
-      internalID: -1984912068192422301
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    outline:
-    - - {x: -10, y: 50}
-      - {x: -10, y: -50}
-      - {x: 10, y: -50}
-      - {x: 10, y: 50}
+    outline: []
     physicsShape: []
     bones: []
     spriteID: 5e97eb03825dee720800000000000000
