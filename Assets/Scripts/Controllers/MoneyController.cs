@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoneyController : MonoBehaviour
 {
     public TMPro.TMP_Text text;
-    public UnityEngine.UI.Image spr;
+    public SpriteRenderer spr;
 
     public List<Sprite> levels = new List<Sprite>();
 

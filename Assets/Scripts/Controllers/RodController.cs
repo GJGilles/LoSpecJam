@@ -39,6 +39,7 @@ public class RodController : MonoBehaviour
     public AudioSource caught;
     public AudioSource hooked;
     public AudioSource windup;
+    public AudioSource broken;
 
     private float length = 10.5f;
 
@@ -146,6 +147,7 @@ public class RodController : MonoBehaviour
         hook.sprite = hookEmpty;
         hook.transform.position = new Vector2(-68, 50);
         velocity = new Vector2(0, 0);
+        broken.Play();
     } 
 
     private void MoveHook(bool hold, bool reel)
