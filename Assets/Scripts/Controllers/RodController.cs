@@ -35,6 +35,11 @@ public class RodController : MonoBehaviour
 
     public Vector2 rodVect = new Vector2(11, 1);
 
+    public AudioSource cast;
+    public AudioSource caught;
+    public AudioSource hooked;
+    public AudioSource windup;
+
     private float length = 10.5f;
 
     private Vector2 velocity = new Vector2(0, 0);
@@ -64,10 +69,12 @@ public class RodController : MonoBehaviour
         if (left && animator.GetBool(FORWARD))
         {
             animator.SetBool(FORWARD, false);
+            windup.Play();
         }
         else if (right && !animator.GetBool(FORWARD))
         {
             animator.SetBool(FORWARD, true);
+            cast.Play();
         }
         ChangeRod(rodVect);
 
@@ -120,6 +127,7 @@ public class RodController : MonoBehaviour
         hook.flipX = true;
         fishMagnitude = 0;
         fishDirection = new Vector2(0, 1);
+        hooked.Play();
     }
 
     private void CatchFish()
@@ -128,6 +136,7 @@ public class RodController : MonoBehaviour
         Destroy(fish.gameObject);
         hook.sprite = hookEmpty;
         hook.flipX = false;
+        caught.Play();
     }
 
     private void SnapLine()

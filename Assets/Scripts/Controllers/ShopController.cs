@@ -17,6 +17,10 @@ public class ShopController : MonoBehaviour
     public List<ShopRowController> rows = new List<ShopRowController>();
     public float selectTime = 0.4f;
 
+    public AudioSource failed;
+    public AudioSource purchased;
+    public AudioSource select;
+
     private float selectRemain = 0f;
     private bool selected = false;
     private int selection = 0;
@@ -37,10 +41,13 @@ public class ShopController : MonoBehaviour
         {
             gameObject.SetActive(false);
         }
-        else if ((InputManager.GetFireA()) && !selected)
+        else if (InputManager.GetFireA())
         {
-            Upgrade();
-            selected = true;
+            if (!selected)
+            {
+                Upgrade();
+                selected = true;
+            }
         }
         else
         {
@@ -54,6 +61,7 @@ public class ShopController : MonoBehaviour
             if (selection < 0) selection = rows.Count - 1;
             rows[selection].UpdateSelect(true);
 
+            select.Play();
             selectRemain = selectTime;
         }
         else if (down && selectRemain < 0)
@@ -63,6 +71,7 @@ public class ShopController : MonoBehaviour
             if (selection >= rows.Count) selection = 0;
             rows[selection].UpdateSelect(true);
 
+            select.Play();
             selectRemain = selectTime;
         }
     }
@@ -71,9 +80,11 @@ public class ShopController : MonoBehaviour
     {
         if (rows[selection].IsMax() || money.Get() < rows[selection].GetCost())
         {
+            failed.Play();
             return;
         }
 
+        purchased.Play();
         money.Set(money.Get() - rows[selection].GetCost());
         float result = rows[selection].Upgrade();
         switch (selection)
