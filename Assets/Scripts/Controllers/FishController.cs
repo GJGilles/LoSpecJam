@@ -23,7 +23,7 @@ public class FishController : MonoBehaviour
             destination = UnityEngine.Random.Range(-range, range);
         }
 
-        float next = location + speed * Math.Sign(destination - Mathf.RoundToInt(location));
+        float next = location + speed * Time.deltaTime * 400 * Math.Sign(destination - Mathf.RoundToInt(location));
         int diff = Mathf.RoundToInt(next) - Mathf.RoundToInt(location);
         while (diff > 0)
         {

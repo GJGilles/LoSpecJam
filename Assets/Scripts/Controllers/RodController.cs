@@ -158,7 +158,7 @@ public class RodController : MonoBehaviour
         if ((!hold && !reel && lineVect.magnitude >= length) || (reel && lineVect.magnitude <= length))
         {
             length = Mathf.Min(lineVect.magnitude, maxLength);
-            SetLineColor(new Color32(141, 144, 46, 1));
+            SetLineColor(new Color32(234, 225, 240, 1));
         }
         else if (lineVect.magnitude - length > snapLength)
         {
@@ -176,7 +176,7 @@ public class RodController : MonoBehaviour
         }
         else
         {
-            SetLineColor(new Color32(141, 144, 46, 1));
+            SetLineColor(new Color32(234, 225, 240, 1));
             snapRemain = snapTime;
         }
 

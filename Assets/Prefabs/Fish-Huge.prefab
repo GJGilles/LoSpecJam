@@ -89,7 +89,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5177467071730644734, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
       propertyPath: cost
-      value: 100
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5177467071730644734, guid: 67f492a79f15a054a93b0df0c2161b6b, type: 3}
       propertyPath: decay
